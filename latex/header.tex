@@ -1,0 +1,175 @@
+%----------------------------------------------------------------%
+%--------------------------INFORMATIONEN-------------------------%
+%----------------------------------------------------------------%
+%	Infos gibt es zu jedem Paket auf www.ctan.org
+%	Werden bei den Paketen bestimmte Optionen gesetzt, so sind die Wichtigsten erklaert
+%	solange sie nicht selbsterklärend sind
+
+%----------------------------------------------------------------%
+%--------------------------GRUNDEINSTELLUNGEN--------------------%
+%----------------------------------------------------------------%
+\documentclass[oneside, ngerman, footinclude=off, captions=tableheading, DIV=12, headerinclude=false, headings=optiontohead]{scrartcl}
+\usepackage[bottom=2.5cm, inner=2.5cm, outer=2.5cm, top=2.5cm]{geometry}
+%	'oneside'/'twoside': nicht zwischen linker und rechter Seite unterscheiden (alternativ twoside)
+%	'twocolumn': wuerde 2 Spalten auf dem Blatt platzieren
+%	'bibliography=totocnumbered': Normal nummeriertes Inhaltsverzeichnis (Kapitelnummer)
+%	'listof=totocnumbered': Abbildungs- und Tabellenverzeichnis normal nummeriert (Kapitelnummer)
+%	'ngerman' verwendet deutsch als Dokumentensprache (z.B. fuer Sirange)
+%	'footinclude=off': Zaehlt Fusszeile zum Rand (vergroessert den Textbereich)
+%	'captions=tableheading': Tabellenueberschriften explizit verwenden, erhoeht den Abstand zur Tabelle
+%	'DIV=12': Kleinere Seitenraender (s. hierzu die KOMA-Documentation)
+
+\usepackage[ngerman, english]{babel}							%	Einstellen der Sprache
+\usepackage[T1]{fontenc}							%	Wie wird Text ausgegeben, d.h. im PDF
+\usepackage[utf8]{inputenc}							%	Welche Zeichen 'versteht' LaTeX bei der Eingabe?
+\usepackage{lmodern}								%	Laedt Schriften, die geglaettet sind
+											
+\usepackage{blindtext}								%	Beispieltext, zum Testen geeignet
+%\usepackage{showframe}
+%----------------------------------------------------------------%
+%--------------------------ABSTÄNDE------------------------------%
+%----------------------------------------------------------------%
+\usepackage[onehalfspacing]{setspace}				%	Für Zeilenabstaende: 'singlespacing' (einfach), 'onehalfspacing' (1.5-fach), 'doublespacing' (2fach)
+%\setlength{\parindent}{0cm}						%	Laengenangabe für die Einrueckung der ersten Zeile eines neuen Absatzes.
+%\setlength{\parskip}{6pt plus 3pt minus 3pt}		%	Laengenangabe für den Abstand zwischen zwei Absaetzen.
+%	Wenn diese beiden Befehle nicht kommentiert sind, wird ein Absatz nicht eingezogen sondern es gibt einen Abstand
+
+%----------------------------------------------------------------%
+%--------------------------MATHE---------------------------------%
+%----------------------------------------------------------------%
+\usepackage[]{mathtools}							%	Erweiterung von AMSMath, laedt automatisch AMSMath - für viele Mathe-Werkzeuge, 'fleqn' als Option ist für Mathe linksbuendig
+\usepackage{amsfonts}								%	Für eine Vielzahl an mathematischen Symbolen
+
+%----------------------------------------------------------------%
+%--------------------------KOPF- UND FUSSZEILEN------------------%
+%----------------------------------------------------------------%
+\usepackage[automark,headsepline=.4pt]{scrlayer-scrpage}
+\pagestyle{scrheadings}
+\setkomafont{pageheadfoot}{\normalfont\bfseries}	%	Normale Schriftart und Fett für den Seitenkopf
+\addtokomafont{pagenumber}{\normalfont\bfseries}	%	Normale Schriftart und Fett für die Seitenzahl
+
+\clearscrheadfoot
+\ohead{\thepage}									%	Rechter Seitenkopf mit Seitenzahl
+\ihead{\headmark}									%	Linker Seitenkopf mit section
+\ofoot[]{\empty}
+%\ofoot{\thepage}									%	Leere Fußzeile, ungerade Seiten
+%	Definert man oben in der documentclass 'twoside', so wird zwischen geraden und ungeraden Seiten unterschieden (NUR DANN!)
+
+%----------------------------------------------------------------%
+%--------------------------BILDER--------------------------------%
+%----------------------------------------------------------------%
+\usepackage{graphicx}									%	Um Bilder einbinden zu koennen 
+\usepackage[dvipsnames,svgnames,table]{xcolor}			%	Farben verwenden, Versch. Farbdefinitionen, Farben in Tabellen (-Reihen, -Spalten)
+\usepackage{pdfpages}									%	pdfs importieren
+\definecolor{Seeblau100}{RGB}{0,169,224}				%	Uni-Farben, z.B. fuer Tabellen
+\definecolor{Seeblau65}{RGB}{89,199,254}
+\definecolor{Seeblau35}{RGB}{165,224,254}
+\definecolor{Seeblau20}{RGB}{203,237,254}
+\definecolor{Seegrau60}{RGB}{102,102,102}
+\definecolor{Seegrau40}{RGB}{153,153,153}
+\definecolor{Seegrau20}{RGB}{204,204,204}
+\definecolor{Seegrau10}{RGB}{230,230,230}
+
+%----------------------------------------------------------------%
+%--------------------------POSITIONIERUNG------------------------%
+%----------------------------------------------------------------%
+\usepackage{float}
+
+%----------------------------------------------------------------%
+%--------------------------LISTEN--------------------------------%
+%----------------------------------------------------------------%
+\usepackage{enumitem}							%	Um Listen / Aufzaehlungen leichter zu modifizieren
+%\setlist{noitemsep}							%	Verringert den Abstand in Aufzaehlungen
+
+%----------------------------------------------------------------%
+%--------TABELLEN-/BILDUNTERSCHRIFTEN und NUMMERIERUNG-----------%
+%----------------------------------------------------------------%
+\addtokomafont{captionlabel}{\bfseries}			%	Abbildung X.Y wir fett geschrieben
+\setcapindent{2em}								%	2. Zeile teilweise haengend und eingezogen. Wenn ganz haengend gewuenscht, auskommentieren
+
+\numberwithin{equation}{section}				%	Nummerierung der Gleichungen, Tabellen und Bilder nach der Kapitelnummer
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+
+%----------------------------------------------------------------%
+%--------------------------LITERATURVERZEICHNIS------------------%
+%----------------------------------------------------------------%
+\usepackage[german]{babelbib}					%	Bereitstellung des deutschen Layouts fuer die Bibliography
+
+%----------------------------------------------------------------%
+%--------------------------SIUNITX-------------------------------%
+%----------------------------------------------------------------%
+\usepackage[]{siunitx}
+\sisetup{locale = DE}							%	Automatische Einstellung der Ausgabe für bestimmte Regionen (UK, US, DE, FR, ZA)
+
+%----------------------------------------------------------------%
+%--------------------------URLs / REFs---------------------------%
+%----------------------------------------------------------------%
+\usepackage[hidelinks]{hyperref}				%	Erweiterte Referenzierung ('hidelinks' verhindert Linien um Links)
+
+%----------------------------------------------------------------%
+%--------------------------EIGENE BEFEHLE------------------------%
+%----------------------------------------------------------------%
+\usepackage{mhchem}
+%\usepackage{subfig}
+\usepackage{subcaption}
+\usepackage{listings}
+%\lstset{numbers=none}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+%\lstset{
+%	numbers=none,
+%	language=HTML,
+%	breaklines=true,
+%	frame=single,
+%	tabsize=2,
+	%backgroundcolor=\color{backcolour},  
+%}
+
+%\lstset{
+%  language=HTML,
+%  basicstyle=\ttfamily\small,
+%  keywordstyle=\color{blue},
+%  stringstyle=\color{red},
+%  commentstyle=\color{green!50!black},
+%  showstringspaces=false,
+%  breaklines=true,
+%  frame=single
+%}
+
+\definecolor{lightgray}{rgb}{.9,.9,.9}
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{
+   language=JavaScript,
+   backgroundcolor=\color{lightgray},
+   extendedchars=true,
+   basicstyle=\footnotesize\ttfamily,
+   showstringspaces=false,
+   showspaces=false,
+   numbers=left,
+   numberstyle=\footnotesize,
+   numbersep=9pt,
+   tabsize=2,
+   breaklines=true,
+   showtabs=false,
+   captionpos=b
+}
+
+
+\usepackage{makecell}
