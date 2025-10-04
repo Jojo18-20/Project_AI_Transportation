@@ -8,7 +8,7 @@
 %----------------------------------------------------------------%
 %--------------------------GRUNDEINSTELLUNGEN--------------------%
 %----------------------------------------------------------------%
-\documentclass[oneside, ngerman, footinclude=off, captions=tableheading, DIV=12, headerinclude=false, headings=optiontohead]{scrartcl}
+\documentclass[11pt, oneside, ngerman, footinclude=off, captions=tableheading, DIV=12, headerinclude=false, headings=optiontohead]{scrartcl}
 \usepackage[bottom=2.5cm, inner=2.5cm, outer=2.5cm, top=2.5cm]{geometry}
 %	'oneside'/'twoside': nicht zwischen linker und rechter Seite unterscheiden (alternativ twoside)
 %	'twocolumn': wuerde 2 Spalten auf dem Blatt platzieren
@@ -22,14 +22,17 @@
 \usepackage[ngerman, english]{babel}							%	Einstellen der Sprache
 \usepackage[T1]{fontenc}							%	Wie wird Text ausgegeben, d.h. im PDF
 \usepackage[utf8]{inputenc}							%	Welche Zeichen 'versteht' LaTeX bei der Eingabe?
-\usepackage{lmodern}								%	Laedt Schriften, die geglaettet sind
+%\usepackage{lmodern}								%	Laedt Schriften, die geglaettet sind
+\usepackage{helvet}     % Helvetica laden (Arial-Ersatz)
+\renewcommand{\familydefault}{\sfdefault} % S			
+			
 											
 \usepackage{blindtext}								%	Beispieltext, zum Testen geeignet
 %\usepackage{showframe}
 %----------------------------------------------------------------%
 %--------------------------ABSTÄNDE------------------------------%
 %----------------------------------------------------------------%
-\usepackage[onehalfspacing]{setspace}				%	Für Zeilenabstaende: 'singlespacing' (einfach), 'onehalfspacing' (1.5-fach), 'doublespacing' (2fach)
+\usepackage[singlespacing]{setspace}				%	Für Zeilenabstaende: 'singlespacing' (einfach), 'onehalfspacing' (1.5-fach), 'doublespacing' (2fach)
 %\setlength{\parindent}{0cm}						%	Laengenangabe für die Einrueckung der ersten Zeile eines neuen Absatzes.
 %\setlength{\parskip}{6pt plus 3pt minus 3pt}		%	Laengenangabe für den Abstand zwischen zwei Absaetzen.
 %	Wenn diese beiden Befehle nicht kommentiert sind, wird ein Absatz nicht eingezogen sondern es gibt einen Abstand
