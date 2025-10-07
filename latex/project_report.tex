@@ -133,16 +133,20 @@
 	Based on these patterns it is very likely -though not proven - that cluster 2 corresponds to the leftest lane showing the highest speed, cluster 3 corresponds to the middle lane with a lower speed, cluster 0 the the right lane and cluster 1 to the lane where cars enter and leave the motorway with the lowest flow.
 	
 	
-	
 	\subsection{Data preprocessing}
 	\subsection{Further descriptive analysis for the portal 55620 and 56160}
-	\subsubsection{Correlation}
-	%\begin{figure}
-	%	\centering
-	%	\includegraphics[width= 0.7 \linewidth] {../Plots/Correlation_lag_flow_speed}
-	%	\caption{blabla}
-	%	\label{Correlation}
-	%\end{figure}
+	\subsubsection{Correlation with lag-data}
+	Furthermore, 
+	The speed graph shows a clear transition from a steep to a flat correlation curve at lag $\approx  15$, with a secondary drop at lag $\approx 25$.
+	For FLOW, on the other hand, no clear break is apparent.
+	A fixed threshold of lag = 15 was chosen to capture the relevant time delays to.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width =0.99 \linewidth]{../Plots/Correlation_lag_flow_speed_peak}
+		\caption{blabla}
+		\label{fig:correlation_lag}
+	\end{figure}
+
 	\subsubsection{title}
 	\section{Problem formulation}
 	
