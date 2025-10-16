@@ -275,8 +275,8 @@
 	\subsection{Selection of the best model}
 	Based on the performance measured with the three different metrics, the XGBoost was chosen as final model. It achieved the best results for flow prediction from both the same and neighbouring portals, as well as for speed prediction from the neighbouring portal. Although the FNN model slightly outperformed XGBoost for speed prediction using sensors from the same portal, the XGBoost was still considered better when also taking the training time into account. 
 	\subsection{Effect of Neighboring Portal Distance on the prediction} \label{chap:influencedistance}
-	After selecting the best model type (XGBoost), it was also of interest to see the influence of the distance of the neigbouring portal. Especially for the flow, where the prediction of the neighbouring portal showed better results, this was of interest.
-	For analysing this distance effect another portal (Portal 57055) was selected. As seen in chapter \ref{chap:clustering} this portal shows the same three lane types and is thus expected to have similar speed and flow patterns. The results for this prediction can be found in figure \ref{tab:result_3portal}.
+	It was also of interest to see the influence of the distance of the neigbouring portal. Especially for the flow, where the prediction of the neighbouring portal showed better results, this was of interest.
+	For analysing this distance effect another portal (Portal 57055) was selected. As seen in chapter \ref{chap:clustering} this portal shows the same three lane types and is thus expected to have similar speed and flow patterns. A new XGBoost model was trained with  the parameters that were obtained in the earlier randomised search for the neighbouring portal. The results for this prediction can be found in figure \ref{tab:result_3portal}. 
 	\begin{table}[H]
 		\centering
 		\caption{Results obtained when using the sensors of portal 570055 (further upstream) for prediction}
@@ -292,7 +292,7 @@
 	\subsection{Training with NaN-Values} \label{chap:nan}
 	As explained in \ref{chap:dataprepro} the models were trained with a filled data set to make comparison easier as not all models can handle NaN-values. 
 	However a major advantage of XGBoost, which was chosen as final model is that it can handle NaN-Values in the feature space during both training and prediction. 
-	Therefore, the model was retrained with NaN-values as it is likely that some values are missing under real-time conditions.
+	Therefore, the model was retrained with NaN-values as it is likely that some values are missing under real-time conditions. The parameters from the previous randomised search were used.
 	\begin{table}[H]
 		\centering
 		\caption{Results obtained with XGBoost trained with NaN values on test set}
@@ -312,7 +312,7 @@
 	For the evaluation set with remaining NaN-values the results are shown in figure \ref{tab:result_xgb_evaluation_nan}.
 	\begin{table}[H]
 		\centering
-		\caption{Results obtained with XGBoost on the evaluation set}
+		\caption{Results obtained with XGBoost on the evaluation set including NaN-values}
 		\label{tab:result_xgb_evaluation_nan}
 		\begin{tabular}{l|lll}
 			& RMSE   & MAE    & R²    \\
@@ -350,7 +350,7 @@
 	\subsection{Limitations and Future Work}
 	The main limitation of this work is that all analyses and model evaluations were based on data from a single lane and portal. Consequently, the conclusions cannot yet be generalized to other locations or traffic conditions.
 	In future work, additional sensors and portals should be included to evaluate spatial transferability.  \newline
-	%A further limitation is that the XGBoost model was only trained with a full data set. Especially when looking at sensor data, missing values are a quite frequent phenomenon. The XGBoost should therefore be retrained with NaN-values to allow a better performance.
+	A further limitation is that the parameters of the XGBOOST model were tuned only once, and were not re-tuned for the third portal or for the model with NaN values.\newline  
 	Furthermore, as already indicated in chapter \ref{chap:influencedistance} flow predictions based on data from the directly neighbouring portal performed better than those from the same or a more distant portal. This could indicate the existence of an optimal distance for capturing flow dynamics, which could also be investigated in a future work.
 	
 	\section{Conclusion}
@@ -472,7 +472,7 @@
 	\end{figure}
 	\begin{table}[H]
 		\centering
-		\caption{Results obtained with XGBoost on the evaluation set}
+		\caption{Results obtained with XGBoost on the evaluation set (filled dataset without Nan-values)}
 		\label{tab:result_xgb_evaluation}
 		\begin{tabular}{l|lll}
 			& RMSE   & MAE    & R²    \\
